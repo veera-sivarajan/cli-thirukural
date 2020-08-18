@@ -6,15 +6,15 @@ function kural() {
   oneTag='# '
   echo ${oneTag}$((${num}+1)) > /home/veera/Projects/.ThirukkuralAPI/kural.md # write s.no to file
   tag='## ' 
-  line=`cat /home/veera/Projects/.ThirukkuralAPI/thirukkural.json | jq --argjson index "$num" '.kural[$index] | .Line1 + " " + .Line2' | sed -e 's/^"//' -e 's/"$//'` # get thirukural from json obj
+  line=`jq --argjson index "$num" '.kural[$index] | .Line1 + " " + .Line2' thirukkural.json | sed -e 's/^"//' -e 's/"$//'` # get thirukural from json obj
   fullLine=${tag}${line}
   dash="- "
 
   # get all translations
-  trans1=$(cat /home/veera/Projects/.ThirukkuralAPI/thirukkural.json | jq --argjson index "$num" '.kural[$index] | .mk' | sed -e 's/^"//' -e 's/"$//')
-  trans2=$(cat /home/veera/Projects/.ThirukkuralAPI/thirukkural.json | jq --argjson index "$num" '.kural[$index] | .sp' | sed -e 's/^"//' -e 's/"$//')
-  trans3=$(cat /home/veera/Projects/.ThirukkuralAPI/thirukkural.json | jq --argjson index "$num" '.kural[$index] | .mv' | sed -e 's/^"//' -e 's/"$//')
-  trans4=$(cat /home/veera/Projects/.ThirukkuralAPI/thirukkural.json | jq --argjson index "$num" '.kural[$index] | .Translation' | sed -e 's/^"//' -e 's/"$//')
+  trans1=$(jq --argjson index "$num" '.kural[$index] | .mk' thirukkural.json | sed -e 's/^"//' -e 's/"$//')
+  trans2=$(jq --argjson index "$num" '.kural[$index] | .sp' thirukkural.json | sed -e 's/^"//' -e 's/"$//')
+  trans3=$(jq --argjson index "$num" '.kural[$index] | .mv' thirukkural.json | sed -e 's/^"//' -e 's/"$//')
+  trans4=$(jq --argjson index "$num" '.kural[$index] | .Translation' thirukkural.json | sed -e 's/^"//' -e 's/"$//')
 
   # append all details to the file
   echo ${fullLine} >> /home/veera/Projects/.ThirukkuralAPI/kural.md
