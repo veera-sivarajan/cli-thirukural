@@ -6,11 +6,11 @@
 #+BEGIN_SRC shell
 source src/script.sh
 #+END_SRC
-*** Get a random kural
+**** Get a random kural
 #+BEGIN_SRC shell
 kural
 #+END_SRC
-*** Get a specific kural
+**** Get a specific kural
 Insert any number in the range 1-1300(inclusive) to get a kural of your choice
 #+BEGIN_SRC shell
 kural <insert_num>
