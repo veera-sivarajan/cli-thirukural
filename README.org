@@ -1,6 +1,10 @@
 * A simple command line tool to read any திருக்குறள்
 - Parses a json array using jq to fetch kural and all translations
 - Provide arguments(kural number) to fetch preferred kural
+** Requirements
+- GNU Coreutils
+- jq (command line JSON processor)
+- okular (Document viewer)
 ** To Execute
 *** Load script into shell(once)
 #+BEGIN_SRC shell
