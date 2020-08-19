@@ -2,15 +2,17 @@
 - Parses a json array using jq to fetch kural and all translations
 - Provide arguments(kural number) to fetch preferred kural
 ** To Execute
-*** Load script into shell(once)
+- Load script into shell
 #+BEGIN_SRC shell
 source src/script.sh
 #+END_SRC
-*** Get a random kural
+
+- Get a random kural
 #+BEGIN_SRC shell
 kural
 #+END_SRC
-*** Get a specific kural
+
+- Get a specific kural
 Insert any number in the range 1-1300(inclusive) to get a kural of your choice
 #+BEGIN_SRC shell
 kural <insert_num>
