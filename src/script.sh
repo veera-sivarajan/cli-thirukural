@@ -24,5 +24,8 @@ function kural() {
   echo ${dash}${trans4} >> /home/veera/Projects/.ThirukkuralAPI/kural.md
 
   # open the file in okular
-  (okular /home/veera/Projects/.ThirukkuralAPI/kural.md &)
+  open=`ps -fe | grep "okular /home/veera/Projects/.ThirukkuralAPI/kural.md" | grep -vc grep`
+  if [ $open -eq 0 ]; then
+      (okular /home/veera/Projects/.ThirukkuralAPI/kural.md &)
+  fi
 }
